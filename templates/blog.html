@@ -12,12 +12,10 @@
 
   <ul>
     {% for blog in blogs %}
-    <li>
       <div>
         <h2><a href="/?id={{blog.id}}">{{blog.title}}</a></h2>
         <p>{{blog.body}}</p>
       </div>
-    </li>
     {% endfor %}
   </ul>
 {% endif %}

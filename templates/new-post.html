@@ -2,35 +2,37 @@
 
 {% block content %}
     <form method='POST'>
-      <table>
-        <tr>
-          <td><label for="blog_title">Title for your new blog:</label></td>
-          <td><input type="text" name="title"></td>
-          <td>
-            {% with errors = get_flashed_messages(category_filter=["title_error"]) %}
-              {% if errors %}
-                {%- for msg in errors %}
-                {{ msg }}
-                {% endfor -%}
-            {% endif %}
-            {% endwith %}
-          </td>
-        </tr>
-        <tr>
-          <td><label for="blog_body">Your new blog:</label></td>
-          <td><input type="textarea" name="body"></td>
-          <td>
-            {% with errors = get_flashed_messages(category_filter=["body_error"]) %}
-              {% if errors %}
-                {%- for msg in errors %}
-                {{ msg }}
-                {% endfor -%}
-            {% endif %}
-            {% endwith %}
-          </td>
-        </tr>
-      </table>
-      <input type="submit" value="Add Entry">
+        <div align="center">
+            <label for="blog_title">Title for your new blog:</label>
+            <div>
+              <input type="text" name="title" placeholder="Your title..">
+              <td class="flashes">
+                {% with errors = get_flashed_messages(category_filter=["title_error"]) %}
+                  {% if errors %}
+                    {%- for msg in errors %}
+                    <em>{{ msg }}</em>
+                    {% endfor -%}
+                {% endif %}
+                {% endwith %}
+              </div>
+        </div>
+        <div align="center">
+            <label for="blog_body">Your new blog:</label>
+            <div>
+              <textarea rows="20" cols="50" type="text" name="body" placeholder="Your blog.."></textarea>
+              <td class="flashes">
+                {% with errors = get_flashed_messages(category_filter=["body_error"]) %}
+                  {% if errors %}
+                    {%- for msg in errors %}
+                    <em>{{ msg }}</em>
+                    {% endfor -%}
+                {% endif %}
+                {% endwith %}
+              </div>
+        </div>
+      <div class="button">
+        <input type="submit" value="Add Entry">
+      </div>
     </form>
 
 {% endblock %}

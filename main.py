@@ -26,10 +26,6 @@ def new_post():
     elif request.method == 'POST':
         blog_title = request.form['title']
         blog_body = request.form['body']
-        new_post = Blog(blog_title, blog_body)
-        db.session.add(new_post)
-        db.session.commit()
-        id = str(new_post.id)
         if_error = False
 
         if blog_title == '':
@@ -40,6 +36,11 @@ def new_post():
             if_error = True
         if if_error:
             return render_template("new-post.html")
+
+        new_post = Blog(blog_title, blog_body)
+        db.session.add(new_post)
+        db.session.commit()
+        id = str(new_post.id)
 
         return redirect('/?id=' + id)
 

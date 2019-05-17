@@ -2,13 +2,111 @@
 <html>
   <head>
     <title>{{title}}</title>
+    <style type='text/css'>
+      .flashes {
+        font-family: Arial;
+        color: red;
+        font-size: 12px;
+      }
+      label {
+        font-family: Arial;
+      }
+
+      .navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #f3f3f3;
+      }
+
+      li {
+        float: left;
+      }
+
+      li a {
+        font-family: Arial;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      li a:hover {
+        background-color: #F1948A;}
+
+      .active {
+        background-color: #E74C3C;}
+
+
+      input[type=text] {
+        width: 50%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        height: 20%;
+      }
+
+      .button {
+        align-content: center;
+        align: center;
+        text-align: center;
+      }
+
+      textarea {
+        width: 50%;
+        height: 150px;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        background-color: #f8f8f8;
+        resize: none;
+      }
+
+      a:link, a:visited {
+        font-family: sans-serif;
+        text-decoration: none;
+      }
+      a:hover, a:active {
+        text-decoration: underline;}
+
+      input[type=submit]:hover {
+        background-color: #B03A2E;
+      }
+      input[type=submit] {
+        width: 50%;
+        background-color: #E74C3C;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      p {
+        font-family: sans-serif;
+        font-size: 12px;
+      }
+      h2 {
+        font-family: sans-serif;
+      }
+
+    </style>
   </head>
   <body>
-
-    <nav class="navbar">
+    <ul class="navbar">
+      <li><a class="active" href="/">Home Blog</a></li>
+      <li><a href="/new-post">Create Blog Entry</a></li>
+    </ul>
+    <!-- <nav class="navbar">
       <a href="/new-post">Add a Blog Entry</a>
       <a href="/">Main Blog Page</a>
-    </nav>
+    </nav> -->
 
     <header>
       <h1>{{title}}</h1>
