@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if all_blogs|length == 0 %}
+<p>There are no entries</p>
+
+{% elif encoded_id %}
+
+  <header>
+    <h1>{{blog.title}}</h1>
+  </header>
+
+  <p>{{blog.body}}</p>
+
+{% elif encoded_user %}
+
+<header>
+  <h1>{{encoded_user}}'s Blog</h1>
+</header>
+
+<ul>
+  {% for blog in user_blogs %}
+    <div>
+      <h2><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h2>
+      <p>{{blog.body}}</p>
+      <small>Written by: <em><a href="/blog?user={{encoded_user}}">{{encoded_user}}</a></em></small>
+    </div>
+  {% endfor %}
+</ul>
+
+{% else %}
+
+<header>
+  <h1>all blogs</h1>
+</header>
+
+  <ul>
+    {% for blog in all_blogs %}
+      <div>
+        <h2><a href="/blog?id={{blog.id}}">{{blog.title}}</a></h2>
+        <p>{{blog.body}}</p>
+        <small>Written by: <em><a href="/blog?user={{blog.owner.username}}">{{blog.owner.username}}</a></em></small>
+      </div>
+    {% endfor %}
+  </ul>
+
+{% endif %}
+
+{% endblock %}
